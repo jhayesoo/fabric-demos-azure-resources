@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ef1aa9b5-6e65-40b8-8302-a10ba4d99019",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Validate CSV and load file to Silver",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "lakehousepath": {
+        "type": "string"
+      },
+      "bronzefolder": {
+        "type": "string"
+      },
+      "filename": {
+        "type": "string"
+      },
+      "metadatafilename": {
+        "type": "string"
+      },
+      "fileformat": {
+        "type": "string"
+      },
+      "landingzonefilefolder": {
+        "type": "string"
+      },
+      "metadatafolder": {
+        "type": "string"
+      }
+    }
+  }
+}
