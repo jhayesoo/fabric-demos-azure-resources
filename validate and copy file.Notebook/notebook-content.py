@@ -22,7 +22,7 @@ filename = 'customer1.csv'
 metadatafilename = 'customer_meta.csv'
 filefolder = 'scenario1-validatecsv/landingzone/files'
 metadatafolder = 'scenario1-validatecsv/landingzone/metadata'
-bronzepath = 'scenario1-validatecsv/bronze'
+bronzefolder = 'scenario1-validatecsv/bronze'
 
 # CELL ********************
 
@@ -38,7 +38,7 @@ print(filename)
 
 inputfilepath = f'{lakehousepath}/Files/{filefolder}/'
 metadatapath = f'{lakehousepath}/Files/{metadatafolder}/'
-outputpath =  f'{lakehousepath}/Files/{bronzepath}/'
+outputpath =  f'{lakehousepath}/Files/{bronzefolder}/'
 outputfilename = filename.replace('.csv','')
 print(outputfilename)
 
