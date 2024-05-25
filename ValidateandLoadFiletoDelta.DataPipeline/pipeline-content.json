@@ -273,25 +273,32 @@
     ],
     "parameters": {
       "lakehousepath": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "abfss://19c6bfff-2379-4076-82d9-61473192f32e@msit-onelake.dfs.fabric.microsoft.com/f98b83cd-7a4e-4be0-bd36-723764c3615a"
       },
       "bronzefolder": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "scenario1-validatecsv/bronze"
       },
       "filename": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "customer1.csv"
       },
       "metadatafilename": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "customer_meta.csv"
       },
       "fileformat": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "customer"
       },
       "landingzonefilefolder": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "scenario1-validatecsv/landingzone/files"
       },
       "metadatafolder": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "scenario1-validatecsv/landingzone/metadata"
       }
     },
     "variables": {
