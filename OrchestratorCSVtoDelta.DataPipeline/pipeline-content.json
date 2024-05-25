@@ -71,7 +71,7 @@
                     "type": "Expression"
                   },
                   "filename": {
-                    "value": "@item()",
+                    "value": "@item().name",
                     "type": "Expression"
                   },
                   "metadatafilename": {

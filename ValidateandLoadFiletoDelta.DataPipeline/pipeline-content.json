@@ -203,8 +203,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "f98b83cd-7a4e-4be0-bd36-723764c3615a",
-                    "workspaceId": "19c6bfff-2379-4076-82d9-61473192f32e",
+                    "artifactId": "d3c9c8a4-21c6-47b6-abac-ed23d080a18d",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -238,8 +238,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "f98b83cd-7a4e-4be0-bd36-723764c3615a",
-                    "workspaceId": "19c6bfff-2379-4076-82d9-61473192f32e",
+                    "artifactId": "d3c9c8a4-21c6-47b6-abac-ed23d080a18d",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -259,8 +259,6 @@
           "secureOutput": false
         },
         "name": "Move File to processed folder",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Validate CSV and load file to Silver",
