@@ -179,7 +179,8 @@
             "type": "BinarySource",
             "storeSettings": {
               "type": "LakehouseReadSettings",
-              "recursive": true
+              "recursive": true,
+              "deleteFilesAfterCompletion": true
             },
             "formatSettings": {
               "type": "BinaryReadSettings"
