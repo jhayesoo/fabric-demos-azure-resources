@@ -65,12 +65,11 @@ if DeltaTable.isDeltaTable(spark,outputpath) and mergeKeyExpr is not None:
     numUpdated = operationMetrics["numTargetRowsUpdated"]
 else:
     df2.write.format("delta").mode("overwrite").save(outputpath)
-    numInserted = operationMetrics["numOutputRows"]
+    numInserted = df2.count()
     numUpdated = 0
 print(numInserted)
 
 # CELL ********************
 
 result = "numInserted="+str(numInserted)+  "|numUpdated="+str(numUpdated)
-# result = {"maxdate": maxdate_str, "numInserted": numInserted, "numUpdated": numUpdated}
 mssparkutils.notebook.exit(str(result))

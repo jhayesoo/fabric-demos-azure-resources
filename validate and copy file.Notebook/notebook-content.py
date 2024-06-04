@@ -86,6 +86,7 @@ else:
                 dups = checkdups[checkdups['count'] > 1]
                 print(dups)
                 haserror = 1
+                dups.to_csv(f'{lakehousepath}/Files/processed/error_duplicate_key_values/duplicaterecords_{filename}',mode='w',index=False)
                 result = 'Error: Duplicate key values'
 
 if haserror == 0:       

@@ -160,7 +160,26 @@
               "dependsOn": []
             }
           ],
-          "ifFalseActivities": []
+          "ifFalseActivities": [
+            {
+              "type": "Office365Outlook",
+              "typeProperties": {
+                "inputs": {
+                  "body": {
+                    "To": "jehayes@microsoft.com",
+                    "Subject": "Error with @{pipeline().parameters.fileformat} file - @{activity('Validate CSV and load file to Silver').output.result.exitValue}",
+                    "Body": "<p>An error occurred at @{pipeline().TriggerTime}, pipeline run id: @{pipeline().RunId}.</p>\n<p>File name is: @{pipeline().parameters.filename}</p>\n<p>@{activity('Validate CSV and load file to Silver').output.result.exitValue}</p>",
+                    "Sensitivity": "",
+                    "Importance": "High"
+                  },
+                  "method": "post",
+                  "path": "/v2/Mail"
+                }
+              },
+              "name": "Notify file error",
+              "dependsOn": []
+            }
+          ]
         },
         "name": "If File Validated",
         "dependsOn": [
@@ -226,7 +245,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": {
-                    "value": "@concat('csvloaderrors/',replace(replace(toLower(activity('Validate CSV and load file to Silver').Output.result.exitValue),' ','_'),'.',''))",
+                    "value": "@concat('processed/',replace(replace(toLower(activity('Validate CSV and load file to Silver').Output.result.exitValue),' ','_'),':',''))",
                     "type": "Expression"
                   },
                   "fileName": {
