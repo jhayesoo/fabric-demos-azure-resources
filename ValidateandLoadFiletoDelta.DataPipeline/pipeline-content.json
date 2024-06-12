@@ -72,7 +72,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Validate CSV and load file to Silver",
+        "name": "Validate CSV and load file to parquet",
         "dependsOn": [
           {
             "activity": "Set parquet file name",
@@ -102,7 +102,7 @@
         "type": "IfCondition",
         "typeProperties": {
           "expression": {
-            "value": "@startswith(activity('Validate CSV and load file to Silver').Output.result.exitValue,'Data written to parquet successfully.')",
+            "value": "@startswith(activity('Validate CSV and load file to parquet').Output.result.exitValue,'Data written to parquet successfully.')",
             "type": "Expression"
           },
           "ifTrueActivities": [
@@ -142,7 +142,7 @@
                   },
                   "keyfields": {
                     "value": {
-                      "value": "@trim(replace(activity('Validate CSV and load file to Silver').Output.result.exitValue,'Data written to parquet successfully. Key fields are:',''))",
+                      "value": "@trim(replace(activity('Validate CSV and load file to parquet').Output.result.exitValue,'Data written to parquet successfully. Key fields are:',''))",
                       "type": "Expression"
                     },
                     "type": "string"
@@ -167,8 +167,8 @@
                 "inputs": {
                   "body": {
                     "To": "jehayes@microsoft.com",
-                    "Subject": "Error with @{pipeline().parameters.fileformat} file - @{activity('Validate CSV and load file to Silver').output.result.exitValue}",
-                    "Body": "<p>An error occurred at @{pipeline().TriggerTime}, pipeline run id: @{pipeline().RunId}.</p>\n<p>File name is: @{pipeline().parameters.filename}</p>\n<p>@{activity('Validate CSV and load file to Silver').output.result.exitValue}</p>",
+                    "Subject": "Error with @{pipeline().parameters.fileformat} file - @{activity('Validate CSV and load file to parquet').output.result.exitValue}",
+                    "Body": "<p>An error occurred at @{pipeline().TriggerTime}, pipeline run id: @{pipeline().RunId}.</p>\n<p>File name is: @{pipeline().parameters.filename}</p>\n<p>@{activity('Validate CSV and load file to parquet').output.result.exitValue}</p>",
                     "Sensitivity": "",
                     "Importance": "High"
                   },
@@ -184,7 +184,7 @@
         "name": "If File Validated",
         "dependsOn": [
           {
-            "activity": "Validate CSV and load file to Silver",
+            "activity": "Validate CSV and load file to parquet",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -245,7 +245,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": {
-                    "value": "@concat('processed/',replace(replace(toLower(activity('Validate CSV and load file to Silver').Output.result.exitValue),' ','_'),':',''))",
+                    "value": "@concat('processed/',replace(replace(toLower(activity('Validate CSV and load file to parquet').Output.result.exitValue),' ','_'),':',''))",
                     "type": "Expression"
                   },
                   "fileName": {
@@ -281,7 +281,7 @@
         "name": "Move File to processed folder",
         "dependsOn": [
           {
-            "activity": "Validate CSV and load file to Silver",
+            "activity": "Validate CSV and load file to parquet",
             "dependencyConditions": [
               "Succeeded"
             ]

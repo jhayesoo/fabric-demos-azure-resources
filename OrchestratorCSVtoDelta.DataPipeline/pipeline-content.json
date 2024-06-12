@@ -34,6 +34,7 @@
           ],
           "storeSettings": {
             "type": "LakehouseReadSettings",
+            "recursive": true,
             "enablePartitionDiscovery": false
           },
           "formatSettings": {
@@ -61,6 +62,10 @@
             {
               "type": "ExecutePipeline",
               "typeProperties": {
+                "pipeline": {
+                  "referenceName": "15ec0958-2a0f-47dc-b1da-c67c8efee593",
+                  "type": "PipelineReference"
+                },
                 "parameters": {
                   "lakehousepath": {
                     "value": "@pipeline().parameters.lakehousepath",
@@ -91,13 +96,7 @@
                     "type": "Expression"
                   }
                 },
-                "waitOnCompletion": true,
-                "workspaceId": "19c6bfff-2379-4076-82d9-61473192f32e",
-                "pipelineId": "15ec0958-2a0f-47dc-b1da-c67c8efee593",
-                "operationType": "InvokeFabricPipeline"
-              },
-              "externalReferences": {
-                "connection": "02d5224f-e426-4049-a843-68dfec9d2208"
+                "waitOnCompletion": true
               },
               "policy": {
                 "secureInput": false
