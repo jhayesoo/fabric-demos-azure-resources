@@ -127,8 +127,19 @@ df = df.select(
 
 # CELL ********************
 
+table_name = f'{delta_path}/Tables/taxitrips'
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 # write the first 1.5 billion records
-df.write.format("delta").mode("overwrite").save(f'{delta_path}/Tables/taxitrips')
+df.write.format("delta").mode("overwrite").save(table_name)
 
 # METADATA ********************
 
@@ -139,41 +150,12 @@ df.write.format("delta").mode("overwrite").save(f'{delta_path}/Tables/taxitrips'
 
 # CELL ********************
 
-# add another year to the dataframe data fields and write anothe 1.5 billion records for testing 3 billion records
-df = df.withColumn("tpepPickupDateTime", expr("tpepPickupDateTime + interval 1 year"))
-df = df.withColumn("tpepDropoffDateTime", expr("tpepDropoffDateTime + interval 1 year"))
-df = df.withColumn("puYear", col("puYear") + 1)
-df.write.format("delta").mode("append").save(f'{delta_path}/taxitrips')
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# add another year to the dataframe data fields and write another 1.5 billion records for testing 4.5 billion records
-df = df.withColumn("tpepPickupDateTime", expr("tpepPickupDateTime + interval 1 year"))
-df = df.withColumn("tpepDropoffDateTime", expr("tpepDropoffDateTime + interval 1 year"))
-df = df.withColumn("puYear", col("puYear") + 1)
-df.write.format("delta").mode("append").save(f'{delta_path}/taxitrips')
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# add another year to the dataframe data fields and write anothe 1.5 billion records for testing 6 billion records
-df = df.withColumn("tpepPickupDateTime", expr("tpepPickupDateTime + interval 5 year"))
-df = df.withColumn("tpepDropoffDateTime", expr("tpepDropoffDateTime + interval 5 year"))
-df = df.withColumn("puYear", col("puYear") + 5)
-df.write.format("delta").mode("append").save(f'{delta_path}/taxitrips')
+for x in range(3):
+ # add another year to the dataframe data fields and write another 1.5 billion records and 3 times
+  df = df.withColumn("tpepPickupDateTime", expr("tpepPickupDateTime + interval 1 year"))
+  df = df.withColumn("tpepDropoffDateTime", expr("tpepDropoffDateTime + interval 1 year"))
+  df = df.withColumn("puYear", col("puYear") + 1)
+  df.write.format("delta").mode("append").save(table_name)
 
 # METADATA ********************
 
@@ -188,7 +170,7 @@ df.write.format("delta").mode("append").save(f'{delta_path}/taxitrips')
 
 # CELL ********************
 
-delta_table = DeltaTable.forPath(spark, f'{delta_path}/taxitrips')
+delta_table = DeltaTable.forPath(spark, table_name)
 
 # METADATA ********************
 
@@ -199,7 +181,10 @@ delta_table = DeltaTable.forPath(spark, f'{delta_path}/taxitrips')
 
 # CELL ********************
 
-delta_table.optimize().executeCompaction()
+(delta_table
+ .optimize()
+ .executeCompaction()
+)
 
 # METADATA ********************
 
@@ -231,7 +216,7 @@ delta_table.optimize().executeCompaction()
 # CELL ********************
 
 # read from Delta table to get all 6b rows
-df = spark.read.format("delta").load(f'{delta_path}/taxitrips')
+df = spark.read.format("delta").load(table_name)
 print(df.count())
 
 
