@@ -3,6 +3,9 @@
 # METADATA ********************
 
 # META {
+# META   "kernel_info": {
+# META     "name": "synapse_pyspark"
+# META   },
 # META   "dependencies": {
 # META     "lakehouse": {
 # META       "default_lakehouse": "f98b83cd-7a4e-4be0-bd36-723764c3615a",
@@ -25,6 +28,13 @@ metadatafolder = 'scenario1-validatecsv/landingzone/metadata'
 outputfolder = 'scenario1-validatecsv/bronze'
 fileformat = 'customer'
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 # Import pandas and pyarrow
@@ -35,11 +45,25 @@ import pyarrow.parquet as pq
 #filename = f'{file}.{filetype}'
 print(filename)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 inputfilepath = f'{lakehousepath}/Files/{filefolder}/'
 metadatapath = f'{lakehousepath}/Files/{metadatafolder}/'
 outputpath =  f'{lakehousepath}/Files/{outputfolder}/'
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # CELL ********************
 
@@ -54,16 +78,37 @@ print(data.dtypes)
 print(meta)
 
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 print(list(meta['columname']))
 print(outputpath)
 print(fileformat)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 keyfields = meta.loc[meta['iskeyfield'] == 1, 'columname'].tolist()
 print(keyfields)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # CELL ********************
 
@@ -101,3 +146,10 @@ if haserror == 0:
     result = f"Data written to parquet successfully. Key fields are:{keyfields} "
 
 mssparkutils.notebook.exit(str(result))
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
