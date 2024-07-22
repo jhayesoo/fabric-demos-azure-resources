@@ -20,8 +20,8 @@
 # Files/landingzone/files
 # landingzonepath = 'abfss://landingzone@adlsdatadrivensynapse.dfs.core.windows.net/'
 lakehousepath = 'abfss://19c6bfff-2379-4076-82d9-61473192f32e@msit-onelake.dfs.fabric.microsoft.com/f98b83cd-7a4e-4be0-bd36-723764c3615a'
-filename = 'customer1.csv'
-outputfilename = 'customer1'
+filename = 'customer_good.csv'
+outputfilename = 'customer_good'
 metadatafilename = 'customer_meta.csv'
 filefolder = 'scenario1-validatecsv/landingzone/files'
 metadatafolder = 'scenario1-validatecsv/landingzone/metadata'
@@ -140,9 +140,10 @@ if haserror == 0:
    # print(inputfilepath)
     print(filename)
     df = spark.read.csv(f"{inputfilepath}{filename}", header=True, inferSchema=True)
-    print(f'File is: {inputfilepath}{filename}')
+    print(f'Input file is: {inputfilepath}{filename}')
+    print(f'Output file is: {outputpath}{outputfilename}')
     display(df)
-    df.write.mode("overwrite").format("parquet").save(f"{outputpath}{outputfilename}")
+    df.write.mode("overwrite").format("parquet").save(f"{outputpath}{outputfilename}.parquet")
     result = f"Data written to parquet successfully. Key fields are:{keyfields} "
 
 mssparkutils.notebook.exit(str(result))

@@ -3,6 +3,9 @@
 # METADATA ********************
 
 # META {
+# META   "kernel_info": {
+# META     "name": "synapse_pyspark"
+# META   },
 # META   "dependencies": {
 # META     "lakehouse": {
 # META       "default_lakehouse": "f98b83cd-7a4e-4be0-bd36-723764c3615a",
@@ -20,15 +23,36 @@ filename = 'customer1'
 tablename = 'customer'
 keyfields = "['number']"
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 outputpath = f'{lakehousepath}/Tables/{tablename}'
 inputpath = f'{lakehousepath}/Files/{inputfolder}/{filename}'
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 from delta.tables import *
 from pyspark.sql.functions import *
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # CELL ********************
 
@@ -36,6 +60,13 @@ keylist = eval(keyfields)
 df2 = spark.read.parquet(inputpath)
 # display(df2)
 print(keylist)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # CELL ********************
 
@@ -46,6 +77,13 @@ if keyfields != None:
         mergekey = mergekey + f't.{key} = s.{key} AND '
     mergeKeyExpr = mergekey.rstrip(' AND')
     print(mergeKeyExpr)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # MARKDOWN ********************
 
@@ -69,7 +107,21 @@ else:
     numUpdated = 0
 print(numInserted)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 result = "numInserted="+str(numInserted)+  "|numUpdated="+str(numUpdated)
 mssparkutils.notebook.exit(str(result))
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
