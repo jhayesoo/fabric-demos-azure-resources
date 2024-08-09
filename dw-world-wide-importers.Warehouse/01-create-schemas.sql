@@ -1,0 +1,3 @@
+CREATE SCHEMA [metadata]
+GO
+CREATE SCHEMA [wwiViews]

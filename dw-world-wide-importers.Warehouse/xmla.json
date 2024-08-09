@@ -1,0 +1,319 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "MirroredWWItoDW",
+        "sourceLineageTag": "[metadata].[MirroredWWItoDW]",
+        "columns": [
+          {
+            "name": "pipelinename",
+            "dataType": "string",
+            "sourceColumn": "pipelinename",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "pipelinename",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sourceschema",
+            "dataType": "string",
+            "sourceColumn": "sourceschema",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sourceschema",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sourcetable",
+            "dataType": "string",
+            "sourceColumn": "sourcetable",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sourcetable",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sourcestartdate",
+            "dataType": "dateTime",
+            "sourceColumn": "sourcestartdate",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "sourcestartdate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sourceenddate",
+            "dataType": "dateTime",
+            "sourceColumn": "sourceenddate",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "sourceenddate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sinkschema",
+            "dataType": "string",
+            "sourceColumn": "sinkschema",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sinkschema",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sinktable",
+            "dataType": "string",
+            "sourceColumn": "sinktable",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sinktable",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "loadtype",
+            "dataType": "string",
+            "sourceColumn": "loadtype",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "loadtype",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "storedprocschema",
+            "dataType": "string",
+            "sourceColumn": "storedprocschema",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "storedprocschema",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "storedprocname",
+            "dataType": "string",
+            "sourceColumn": "storedprocname",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "storedprocname",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "skipload",
+            "dataType": "boolean",
+            "sourceColumn": "skipload",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "skipload",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "batchloaddatetime",
+            "dataType": "dateTime",
+            "sourceColumn": "batchloaddatetime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "batchloaddatetime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "loadstatus",
+            "dataType": "string",
+            "sourceColumn": "loadstatus",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "loadstatus",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "rowsupdated",
+            "dataType": "int64",
+            "sourceColumn": "rowsupdated",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "rowsupdated",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "rowsinserted",
+            "dataType": "int64",
+            "sourceColumn": "rowsinserted",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "rowsinserted",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sinkmaxdatetime",
+            "dataType": "dateTime",
+            "sourceColumn": "sinkmaxdatetime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "sinkmaxdatetime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "pipelinestarttime",
+            "dataType": "dateTime",
+            "sourceColumn": "pipelinestarttime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "pipelinestarttime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "pipelineendtime",
+            "dataType": "dateTime",
+            "sourceColumn": "pipelineendtime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "pipelineendtime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "MirroredWWItoDW",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "metadata"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}
