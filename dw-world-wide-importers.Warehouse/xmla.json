@@ -13,6 +13,505 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
+        "name": "CustomerDeliveredTo",
+        "sourceLineageTag": "[wwiViews].[CustomerDeliveredTo]",
+        "columns": [
+          {
+            "name": "YearsCustomer",
+            "dataType": "int64",
+            "sourceColumn": "YearsCustomer",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "YearsCustomer",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "BuyingGroupID",
+            "dataType": "int64",
+            "sourceColumn": "BuyingGroupID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "BuyingGroupID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "BuyingGroupName",
+            "dataType": "string",
+            "sourceColumn": "BuyingGroupName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "BuyingGroupName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CreditLimit",
+            "dataType": "double",
+            "sourceColumn": "CreditLimit",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "CreditLimit",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "CustomerCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerCategoryID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerCategoryID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "CustomerName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCityID",
+            "dataType": "int64",
+            "sourceColumn": "DeliveryCityID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "DeliveryCityID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCity",
+            "dataType": "string",
+            "sourceColumn": "DeliveryCity",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryCity",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryStateProvince",
+            "dataType": "string",
+            "sourceColumn": "DeliveryStateProvince",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryStateProvince",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCountry",
+            "dataType": "string",
+            "sourceColumn": "DeliveryCountry",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryCountry",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Region",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Subregion",
+            "dataType": "string",
+            "sourceColumn": "Subregion",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Subregion",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Continent",
+            "dataType": "string",
+            "sourceColumn": "Continent",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Continent",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SalesTerritory",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritory",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "SalesTerritory",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryPostalCode",
+            "dataType": "string",
+            "sourceColumn": "DeliveryPostalCode",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryPostalCode",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "IsOnCreditHold",
+            "dataType": "boolean",
+            "sourceColumn": "IsOnCreditHold",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "IsOnCreditHold",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PaymentDays",
+            "dataType": "int64",
+            "sourceColumn": "PaymentDays",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "PaymentDays",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "AreaCode",
+            "dataType": "string",
+            "sourceColumn": "AreaCode",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "AreaCode",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "CustomerDeliveredTo",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "wwiViews"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "InvoicedSales",
+        "sourceLineageTag": "[wwiViews].[InvoicedSales]",
+        "columns": [
+          {
+            "name": "InvoiceID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "InvoiceID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "InvoiceLineID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceLineID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "InvoiceLineID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "StockItemID",
+            "dataType": "int64",
+            "sourceColumn": "StockItemID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "StockItemID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SalespersonPersonID",
+            "dataType": "int64",
+            "sourceColumn": "SalespersonPersonID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "SalespersonPersonID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "InvoiceDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InvoiceDate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "InvoiceDate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "LastUpdated",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdated",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "LastUpdated",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Quantity",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ExtendedPrice",
+            "dataType": "double",
+            "sourceColumn": "ExtendedPrice",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "ExtendedPrice",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "GrossProfit",
+            "dataType": "double",
+            "sourceColumn": "GrossProfit",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "GrossProfit",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "TaxAmount",
+            "dataType": "double",
+            "sourceColumn": "TaxAmount",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "TaxAmount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "InvoicedSales",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "wwiViews"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "MirroredWWItoDW",
         "sourceLineageTag": "[metadata].[MirroredWWItoDW]",
         "columns": [
@@ -287,6 +786,346 @@
               "entityName": "MirroredWWItoDW",
               "expressionSource": "DatabaseQuery",
               "schemaName": "metadata"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "sourceLineageTag": "[wwiViews].[Products]",
+        "columns": [
+          {
+            "name": "Brand",
+            "dataType": "string",
+            "sourceColumn": "Brand",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Brand",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ColorName",
+            "dataType": "string",
+            "sourceColumn": "ColorName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ColorName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "LeadTimeDays",
+            "dataType": "int64",
+            "sourceColumn": "LeadTimeDays",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "LeadTimeDays",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "StockItemID",
+            "dataType": "int64",
+            "sourceColumn": "StockItemID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "StockItemID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "StockItemName",
+            "dataType": "string",
+            "sourceColumn": "StockItemName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "StockItemName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SupplierID",
+            "dataType": "int64",
+            "sourceColumn": "SupplierID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "SupplierID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SupplierName",
+            "dataType": "string",
+            "sourceColumn": "SupplierName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "SupplierName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Products",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "wwiViews"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "SalesOrders",
+        "sourceLineageTag": "[wwiViews].[SalesOrders]",
+        "columns": [
+          {
+            "name": "OrderID",
+            "dataType": "int64",
+            "sourceColumn": "OrderID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "OrderID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrderLineID",
+            "dataType": "int64",
+            "sourceColumn": "OrderLineID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "OrderLineID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "StockItemID",
+            "dataType": "int64",
+            "sourceColumn": "StockItemID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "StockItemID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SalespersonPersonID",
+            "dataType": "int64",
+            "sourceColumn": "SalespersonPersonID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "SalespersonPersonID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "OrderDate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Quantity",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ExtendedPrice",
+            "dataType": "double",
+            "sourceColumn": "ExtendedPrice",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "ExtendedPrice",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "LastUpdated",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdated",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "LastUpdated",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "SalesOrders",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "wwiViews"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Salesperson",
+        "sourceLineageTag": "[wwiViews].[Salesperson]",
+        "columns": [
+          {
+            "name": "PersonID",
+            "dataType": "int64",
+            "sourceColumn": "PersonID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "PersonID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "FullName",
+            "dataType": "string",
+            "sourceColumn": "FullName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "FullName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Salesperson",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "wwiViews"
             }
           }
         ],
