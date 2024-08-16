@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "mirrored_world_wide_importers"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a5bb7a25-7d95-42a6-a1a0-06f0bd9b9400"
+  }
+}
