@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "orchestrator Load WWI to DW"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ace07777-36c7-4eda-b6ef-0b3417e3b688"
+  }
+}

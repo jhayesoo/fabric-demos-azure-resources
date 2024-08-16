@@ -5,7 +5,7 @@ GO
 CREATE TABLE [metadata].[MirroredWWItoDW](
 	[pipelinename] [varchar](100) NOT NULL,
 	[sourceschema] [varchar](50) NOT NULL,
-	[sourcetable] [varchar](50) NOT NULL,
+	[sourceobject] [varchar](50) NOT NULL,
 	[sourcestartdate] [datetime2](6) NULL,
 	[sourceenddate] [datetime2](6) NULL,
 	[sinkschema] [varchar](100) NULL,
@@ -25,18 +25,19 @@ CREATE TABLE [metadata].[MirroredWWItoDW](
 
 GO
 
+TRUNCATE TABLE metadata.MirroredWWItoDW
+
+
 INSERT INTO [metadata].[MirroredWWItoDW]
-([pipelinename], [sourceschema], [sourcetable], [sinkschema], [sinktable], [loadtype], [storedprocschema], [storedprocname], [skipload])
+([pipelinename], [sourceschema], [sourceobject], [sinkschema], [sinktable], [loadtype], [storedprocschema], [storedprocname], [skipload],[sourcestartdate],[sourceenddate])
 SELECT
-'orchestrator Load WWI to DW','wwiViews','vCustomerDeliveredTo','Gold','Customer','full',NULL,NULL,0
+'orchestrator Load WWI to DW','wwiViews','CustomerDeliveredTo','starschema','Customer','full',NULL,NULL,0,'2013-01-01 00:00:00',NULL
 UNION SELECT
-'orchestrator Load WWI to DW','wwiViews','vInvoicedSales','Gold','InvoicedSales','incremental','Gold','IncrLoadInvoicedSales',0
+'orchestrator Load WWI to DW','wwiViews','InvoicedSales','starschema','InvoicedSales','incremental','starschema','IncrLoadInvoicedSales',0,'2013-01-01 00:00:00','2013-01-08 00:00:00'
 UNION SELECT
-'orchestrator Load WWI to DW','wwiViews','vProducts','Gold','Products','full',NULL,NULL,0
+'orchestrator Load WWI to DW','wwiViews','Products','starschema','Products','full',NULL,NULL,0,'2013-01-01 00:00:00',NULL
 UNION SELECT
-'orchestrator Load WWI to DW','wwiViews','vSalesperson','Gold','Salesperson','full',NULL,NULL,0
+'orchestrator Load WWI to DW','wwiViews','Salesperson','starschema','Salesperson','full',NULL,NULL,0,'2013-01-01 00:00:00',NULL
 UNION SELECT
-'orchestrator Load WWI to DW','wwiViews','vCalendar','Gold','Calendar','full',NULL,NULL,0
-UNION SELECT
-'orchestrator Load WWI to DW','wwiViews','vSalesOrders','Gold','SalesOrders','incremental','Gold','IncrLoadSalesOrders',0
+'orchestrator Load WWI to DW','wwiViews','SalesOrders','starschema','SalesOrders','incremental','starschema','IncrLoadSalesOrders',0,'2013-01-01 00:00:00','2013-01-08 00:00:00'
 

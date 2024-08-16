@@ -2,7 +2,7 @@ CREATE TABLE [metadata].[MirroredWWItoDW] (
 
 	[pipelinename] varchar(100) NOT NULL, 
 	[sourceschema] varchar(50) NOT NULL, 
-	[sourcetable] varchar(50) NOT NULL, 
+	[sourceobject] varchar(50) NOT NULL, 
 	[sourcestartdate] datetime2(6) NULL, 
 	[sourceenddate] datetime2(6) NULL, 
 	[sinkschema] varchar(100) NULL, 
