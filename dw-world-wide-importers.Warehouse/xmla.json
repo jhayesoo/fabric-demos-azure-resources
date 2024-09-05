@@ -124,312 +124,11 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
               "entityName": "Calendar",
-              "expressionSource": "DatabaseQuery",
-              "schemaName": "starschema"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "IsTableInBiModel",
-            "value": "False"
-          }
-        ]
-      },
-      {
-        "name": "Customer",
-        "sourceLineageTag": "[starschema].[Customer]",
-        "columns": [
-          {
-            "name": "YearsCustomer",
-            "dataType": "int64",
-            "sourceColumn": "YearsCustomer",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "YearsCustomer",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "BuyingGroupID",
-            "dataType": "int64",
-            "sourceColumn": "BuyingGroupID",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "BuyingGroupID",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "BuyingGroupName",
-            "dataType": "string",
-            "sourceColumn": "BuyingGroupName",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "BuyingGroupName",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "CreditLimit",
-            "dataType": "double",
-            "sourceColumn": "CreditLimit",
-            "sourceProviderType": "decimal",
-            "sourceLineageTag": "CreditLimit",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ]
-          },
-          {
-            "name": "CustomerCategoryID",
-            "dataType": "int64",
-            "sourceColumn": "CustomerCategoryID",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "CustomerCategoryID",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "CustomerID",
-            "dataType": "int64",
-            "sourceColumn": "CustomerID",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "CustomerID",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "CustomerName",
-            "dataType": "string",
-            "sourceColumn": "CustomerName",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "CustomerName",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "DeliveryCityID",
-            "dataType": "int64",
-            "sourceColumn": "DeliveryCityID",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "DeliveryCityID",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "DeliveryCity",
-            "dataType": "string",
-            "sourceColumn": "DeliveryCity",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "DeliveryCity",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "DeliveryStateProvince",
-            "dataType": "string",
-            "sourceColumn": "DeliveryStateProvince",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "DeliveryStateProvince",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "DeliveryCountry",
-            "dataType": "string",
-            "sourceColumn": "DeliveryCountry",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "DeliveryCountry",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "Region",
-            "dataType": "string",
-            "sourceColumn": "Region",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "Region",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "Subregion",
-            "dataType": "string",
-            "sourceColumn": "Subregion",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "Subregion",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "Continent",
-            "dataType": "string",
-            "sourceColumn": "Continent",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "Continent",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "SalesTerritory",
-            "dataType": "string",
-            "sourceColumn": "SalesTerritory",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "SalesTerritory",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "DeliveryPostalCode",
-            "dataType": "string",
-            "sourceColumn": "DeliveryPostalCode",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "DeliveryPostalCode",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "IsOnCreditHold",
-            "dataType": "boolean",
-            "sourceColumn": "IsOnCreditHold",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "sourceProviderType": "bit",
-            "sourceLineageTag": "IsOnCreditHold",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "PaymentDays",
-            "dataType": "int64",
-            "sourceColumn": "PaymentDays",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "PaymentDays",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "AreaCode",
-            "dataType": "string",
-            "sourceColumn": "AreaCode",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "AreaCode",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "{{Partition_Name}}",
-            "mode": "directLake",
-            "source": {
-              "type": "entity",
-              "entityName": "Customer",
               "expressionSource": "DatabaseQuery",
               "schemaName": "starschema"
             }
@@ -726,7 +425,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -924,7 +623,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -1209,7 +908,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -1334,7 +1033,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -1496,7 +1195,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -1549,11 +1248,393 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
               "entityName": "Salesperson",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "starschema"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "customer",
+        "sourceLineageTag": "[dbo].[customer]",
+        "columns": [
+          {
+            "name": "number",
+            "dataType": "int64",
+            "sourceColumn": "number",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "number",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "city",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "dataType": "string",
+            "sourceColumn": "state",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "state",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Dataset_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "customer",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "True"
+          }
+        ]
+      },
+      {
+        "name": "starschema.Customer",
+        "sourceLineageTag": "[starschema].[Customer]",
+        "columns": [
+          {
+            "name": "YearsCustomer",
+            "dataType": "int64",
+            "sourceColumn": "YearsCustomer",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "YearsCustomer",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "BuyingGroupID",
+            "dataType": "int64",
+            "sourceColumn": "BuyingGroupID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "BuyingGroupID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "BuyingGroupName",
+            "dataType": "string",
+            "sourceColumn": "BuyingGroupName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "BuyingGroupName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CreditLimit",
+            "dataType": "double",
+            "sourceColumn": "CreditLimit",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "CreditLimit",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "CustomerCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerCategoryID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerCategoryID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "CustomerName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCityID",
+            "dataType": "int64",
+            "sourceColumn": "DeliveryCityID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "DeliveryCityID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCity",
+            "dataType": "string",
+            "sourceColumn": "DeliveryCity",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryCity",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryStateProvince",
+            "dataType": "string",
+            "sourceColumn": "DeliveryStateProvince",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryStateProvince",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryCountry",
+            "dataType": "string",
+            "sourceColumn": "DeliveryCountry",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryCountry",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Region",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Subregion",
+            "dataType": "string",
+            "sourceColumn": "Subregion",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Subregion",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Continent",
+            "dataType": "string",
+            "sourceColumn": "Continent",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Continent",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SalesTerritory",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritory",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "SalesTerritory",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DeliveryPostalCode",
+            "dataType": "string",
+            "sourceColumn": "DeliveryPostalCode",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DeliveryPostalCode",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "IsOnCreditHold",
+            "dataType": "boolean",
+            "sourceColumn": "IsOnCreditHold",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "IsOnCreditHold",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PaymentDays",
+            "dataType": "int64",
+            "sourceColumn": "PaymentDays",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "PaymentDays",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "AreaCode",
+            "dataType": "string",
+            "sourceColumn": "AreaCode",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "AreaCode",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Dataset_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Customer",
               "expressionSource": "DatabaseQuery",
               "schemaName": "starschema"
             }
@@ -1747,7 +1828,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -1909,7 +1990,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -2034,7 +2115,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -2087,7 +2168,7 @@
         ],
         "partitions": [
           {
-            "name": "{{Partition_Name}}",
+            "name": "{{Dataset_Name}}",
             "mode": "directLake",
             "source": {
               "type": "entity",
@@ -2116,6 +2197,10 @@
       {
         "name": "__PBI_TimeIntelligenceEnabled",
         "value": "0"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"CustomerDeliveredTo\",\"wwiViews.Products\",\"InvoicedSales\",\"SalesOrders\",\"wwiViews.Salesperson\",\"exec_requests_history\",\"long_running_queries\",\"frequently_run_queries\",\"exec_sessions_history\",\"customer\",\"MirroredWWItoDW\",\"Calendar\",\"starschema.InvoicedSales\",\"starschema.SalesOrders\",\"starschema.Customer\",\"Salesperson\",\"Products\"]"
       },
       {
         "name": "SourceLineageTagType",

@@ -1,0 +1,69 @@
+{
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.58\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU08",
+            "path": "BaseThemes/CY24SU08.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "b3f03117a5bdb1001876",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"79d9b0a4e0cc7b844db6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.94821529253589,\"y\":0,\"z\":0,\"width\":557.8106431886195,\"height\":279.97120180422434,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineStackedColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Calendar.Calendar.Year\"},{\"queryRef\":\"Calendar.Calendar.Month\"},{\"queryRef\":\"Calendar.Calendar.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"InvoicedSales.InvoicedSales\"}],\"Y2\":[{\"queryRef\":\"InvoicedSales.GrossMargin%\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0},{\"Name\":\"i\",\"Entity\":\"InvoicedSales\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Hierarchy\":\"Calendar\"}},\"Level\":\"Year\"},\"Name\":\"Calendar.Calendar.Year\",\"NativeReferenceName\":\"Calendar Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Hierarchy\":\"Calendar\"}},\"Level\":\"Month\"},\"Name\":\"Calendar.Calendar.Month\",\"NativeReferenceName\":\"Calendar Month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"InvoicedSales\"},\"Name\":\"InvoicedSales.InvoicedSales\",\"NativeReferenceName\":\"InvoicedSales\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Hierarchy\":\"Calendar\"}},\"Level\":\"Date\"},\"Name\":\"Calendar.Calendar.Date\",\"NativeReferenceName\":\"Calendar Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"GrossMargin%\"},\"Name\":\"InvoicedSales.GrossMargin%\",\"NativeReferenceName\":\"GrossMargin%\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Hierarchy\":\"Calendar\"}},\"Level\":\"Year\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 279.97,
+          "width": 557.81,
+          "x": 9.95,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"85be0ff4040cc4d12695\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.94821529253589,\"y\":289.9194170967602,\"z\":2000,\"width\":908.8405256538144,\"height\":413.5615214468491,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Category\":[{\"queryRef\":\"Customer.DeliveryStateProvince\"},{\"queryRef\":\"Customer.DeliveryCity\",\"active\":true}],\"Size\":[{\"queryRef\":\"SalesOrders.SalesAmount\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Customer\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"SalesOrders\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DeliveryStateProvince\"},\"Name\":\"Customer.DeliveryStateProvince\",\"NativeReferenceName\":\"DeliveryStateProvince\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SalesAmount\"},\"Name\":\"SalesOrders.SalesAmount\",\"NativeReferenceName\":\"SalesAmount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DeliveryCity\"},\"Name\":\"Customer.DeliveryCity\",\"NativeReferenceName\":\"DeliveryCity\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.56,
+          "width": 908.84,
+          "x": 9.95,
+          "y": 289.92,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"8aced8d33789019953b2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":704.191525350219,\"y\":0,\"z\":1000,\"width\":557.8106431886195,\"height\":279.97120180422434,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"Products.SupplierName\",\"active\":true}],\"Values\":[{\"queryRef\":\"SalesOrders.SalesAmount\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Products\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"SalesOrders\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"SupplierName\"},\"Name\":\"Products.SupplierName\",\"NativeReferenceName\":\"SupplierName\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SalesAmount\"},\"Name\":\"SalesOrders.SalesAmount\",\"NativeReferenceName\":\"SalesAmount\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 279.97,
+          "width": 557.81,
+          "x": 704.19,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"9c42021485ec1900300c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":918.634465400739,\"y\":290.2333336005194,\"z\":3000,\"width\":343.4208902105693,\"height\":413.68099585594393,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Salesperson.FullName\"},{\"queryRef\":\"InvoicedSales.GrossMargin%\"},{\"queryRef\":\"InvoicedSales.InvoicedSales\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Salesperson\",\"Type\":0},{\"Name\":\"i\",\"Entity\":\"InvoicedSales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"FullName\"},\"Name\":\"Salesperson.FullName\",\"NativeReferenceName\":\"FullName\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"GrossMargin%\"},\"Name\":\"InvoicedSales.GrossMargin%\",\"NativeReferenceName\":\"GrossMargin%\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"InvoicedSales\"},\"Name\":\"InvoicedSales.InvoicedSales\",\"NativeReferenceName\":\"InvoicedSales\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.68,
+          "width": 343.42,
+          "x": 918.63,
+          "y": 290.23,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

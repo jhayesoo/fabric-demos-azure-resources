@@ -140,10 +140,22 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DataType"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "General Date",
+            "formatString": "Short Date",
             "lineageTag": "081a7136-749e-462a-96c4-39468d35d91b",
             "sourceColumn": "Date",
             "sourceLineageTag": "Date",
@@ -155,7 +167,12 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -164,14 +181,19 @@
             "sourceColumn": "Year",
             "sourceLineageTag": "Year",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Month",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -180,14 +202,19 @@
             "sourceColumn": "Month",
             "sourceLineageTag": "Month",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Day",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -196,14 +223,19 @@
             "sourceColumn": "Day",
             "sourceLineageTag": "Day",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Quarter",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -212,14 +244,19 @@
             "sourceColumn": "Quarter",
             "sourceLineageTag": "Quarter",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "WeekOfYear",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -228,14 +265,19 @@
             "sourceColumn": "WeekOfYear",
             "sourceLineageTag": "WeekOfYear",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "DayOfWeek",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -244,7 +286,44 @@
             "sourceColumn": "DayOfWeek",
             "sourceLineageTag": "DayOfWeek",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "changedProperties": [
+              {
+                "property": "Name"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "40ef6e76-859a-4a02-8b3e-9f61c6f733f6",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "38f41be3-4eaf-44f1-b2a7-0ff58d490c14",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "35440880-a220-4990-97e4-784c741319f0",
+                "ordinal": 2
+              },
+              {
+                "name": "Date",
+                "column": "Date",
+                "lineageTag": "4bcff04f-1e79-4d9a-a8b8-8df838619e48",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "2e417d6f-2397-426f-9721-b8a038f54c5e"
           }
         ],
         "lineageTag": "179c81be-69fb-4e81-a8d3-1c0675fe44bf",
@@ -276,7 +355,12 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -285,14 +369,19 @@
             "sourceColumn": "InvoiceID",
             "sourceLineageTag": "InvoiceID",
             "sourceProviderType": "int",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "InvoiceLineID",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -301,7 +390,7 @@
             "sourceColumn": "InvoiceLineID",
             "sourceLineageTag": "InvoiceLineID",
             "sourceProviderType": "int",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "CustomerID",
@@ -388,7 +477,12 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -397,18 +491,23 @@
             "sourceColumn": "Quantity",
             "sourceLineageTag": "Quantity",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "ExtendedPrice",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "double",
@@ -416,18 +515,23 @@
             "sourceColumn": "ExtendedPrice",
             "sourceLineageTag": "ExtendedPrice",
             "sourceProviderType": "decimal(18, 2)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "GrossProfit",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "double",
@@ -435,18 +539,23 @@
             "sourceColumn": "GrossProfit",
             "sourceLineageTag": "GrossProfit",
             "sourceProviderType": "decimal(18, 2)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "TaxAmount",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "double",
@@ -454,10 +563,96 @@
             "sourceColumn": "TaxAmount",
             "sourceLineageTag": "TaxAmount",
             "sourceProviderType": "decimal(18, 2)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "56977c23-d86e-4d28-b2a6-97c607fa4fcd",
+        "measures": [
+          {
+            "name": "GrossMargin",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "Sum(InvoicedSales[GrossProfit])",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "lineageTag": "e5c94aad-9df5-49fe-8ca7-9c0b28c5cbcb"
+          },
+          {
+            "name": "GrossMargin%",
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "DIVIDE([GrossMargin],[InvoicedSales])",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "dc36bf00-1f07-4de4-be40-17966ede39c2"
+          },
+          {
+            "name": "InvoicedQuantity",
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "Sum(InvoicedSales[Quantity])",
+            "formatString": "#,0",
+            "lineageTag": "0489be1c-6574-408a-b9c0-a73c0fc0599b"
+          },
+          {
+            "name": "InvoicedSales",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "SUM(InvoicedSales[ExtendedPrice])",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "lineageTag": "5c902abd-d4e6-4639-bb75-98849c1caa29"
+          }
+        ],
         "partitions": [
           {
             "name": "InvoicedSales",
@@ -486,7 +681,12 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -495,14 +695,19 @@
             "sourceColumn": "OrderID",
             "sourceLineageTag": "OrderID",
             "sourceProviderType": "int",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "OrderLineID",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -511,7 +716,7 @@
             "sourceColumn": "OrderLineID",
             "sourceLineageTag": "OrderLineID",
             "sourceProviderType": "int",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "CustomerID",
@@ -582,7 +787,12 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "int64",
@@ -591,18 +801,23 @@
             "sourceColumn": "Quantity",
             "sourceLineageTag": "Quantity",
             "sourceProviderType": "int",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "ExtendedPrice",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
               }
             ],
             "dataType": "double",
@@ -610,7 +825,7 @@
             "sourceColumn": "ExtendedPrice",
             "sourceLineageTag": "ExtendedPrice",
             "sourceProviderType": "decimal(18, 2)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "LastUpdated",
@@ -630,6 +845,50 @@
           }
         ],
         "lineageTag": "7f600e70-f819-4a76-8188-42b8ee4f17f6",
+        "measures": [
+          {
+            "name": "SalesAmount",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "Sum(SalesOrders[ExtendedPrice])",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "lineageTag": "56c0db42-34ad-4be2-ae35-0da001d8c831"
+          },
+          {
+            "name": "SalesQuantity",
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "DisplayFolder"
+              },
+              {
+                "property": "FormatString"
+              }
+            ],
+            "displayFolder": "Measures",
+            "expression": "Sum(SalesOrders[Quantity])",
+            "formatString": "#,0",
+            "lineageTag": "a4af409d-b788-4230-a1a7-bd0991fecca5"
+          }
+        ],
         "partitions": [
           {
             "name": "SalesOrders",
