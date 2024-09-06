@@ -2200,7 +2200,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"CustomerDeliveredTo\",\"wwiViews.Products\",\"InvoicedSales\",\"SalesOrders\",\"wwiViews.Salesperson\",\"exec_requests_history\",\"long_running_queries\",\"frequently_run_queries\",\"exec_sessions_history\",\"customer\",\"MirroredWWItoDW\",\"Calendar\",\"starschema.InvoicedSales\",\"starschema.SalesOrders\",\"starschema.Customer\",\"Salesperson\",\"Products\"]"
+        "value": "[\"exec_requests_history\",\"long_running_queries\",\"frequently_run_queries\",\"exec_sessions_history\",\"CustomerDeliveredTo\",\"wwiViews.Products\",\"InvoicedSales\",\"SalesOrders\",\"wwiViews.Salesperson\",\"customer\",\"MirroredWWItoDW\",\"Calendar\",\"starschema.InvoicedSales\",\"starschema.SalesOrders\",\"starschema.Customer\",\"Salesperson\",\"Products\"]"
       },
       {
         "name": "SourceLineageTagType",
