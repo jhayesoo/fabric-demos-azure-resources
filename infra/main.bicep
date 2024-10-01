@@ -103,24 +103,6 @@ module storageAccount './core/storage/storage-account.bicep' = {
 ]
 }
 
-/* module storageUploadFile './core/storage/storage-upload-file.bicep' = {
-  name: 'storageUploadFile'
-  scope: rg
-  params: {
-    name: 'wwiBacpac'
-    location: location
-    fileName: 'WideWorldImporters-Standard.bacpac'
-    storageAccountName: storageAccountName
-    containerName: 'bacpacs'
-    contentUri: wwiBacpacUri
-  }
-  dependsOn: [
-      storageAccount
-      keyvault
-  ]
-}
-*/
-
 module sqlServer './core/database/sqlserver/sqlserver.bicep' = {
   name: 'sqlServer'
   scope: rg

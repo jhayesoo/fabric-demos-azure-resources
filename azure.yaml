@@ -12,22 +12,22 @@ hooks:
   preprovision:
     windows:
       shell: pwsh
-      run: ./scripts/get-upn.ps1
+      run: ./hooks/get-upn.ps1
       interactive: true
       continueOnError: false
     posix:
       shell: sh
-      run: ./scripts/get-upn.ps1
+      run: ./hooks/get-upn.ps1
       interactive: true
       continueOnError: false
   postdeploy: 
     windows:
       shell: pwsh
-      run: ./scripts/import-wwi-db.ps1
+      run: ./hooks/import-wwi-db.ps1
       interactive: true
       continueOnError: false
     posix:
       shell: sh
-      run: ./scripts/import-wwi-db.sh
+      run: ./hooks/import-wwi-db.sh
       interactive: true
       continueOnError: false        
