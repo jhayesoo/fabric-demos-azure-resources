@@ -2,8 +2,7 @@ metadata description = 'Creates an Azure Key Vault.'
 param name string
 param location string = resourceGroup().location
 param tags object = {}
-
-param principalId string = ''
+param principalId string
 
 resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: name
@@ -15,7 +14,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
     accessPolicies: !empty(principalId) ? [
       {
         objectId: principalId
-        permissions: { secrets: [ 'get', 'list' ] }
+        permissions: { secrets: [ 'get', 'list','set','all' ] }
         tenantId: subscription().tenantId
       }
     ] : []
