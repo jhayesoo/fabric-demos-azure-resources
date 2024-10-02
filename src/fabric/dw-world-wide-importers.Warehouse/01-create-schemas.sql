@@ -1,6 +1,0 @@
-CREATE SCHEMA [metadata]
-GO
-CREATE SCHEMA [wwiViews]
-GO
-CREATE SCHEMA [starschema]
-GO

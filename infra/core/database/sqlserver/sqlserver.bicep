@@ -12,6 +12,9 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   name: name
   location: location
   tags: tags
+  identity: {
+    type: 'SystemAssigned'
+   }
   properties: {
     version: '12.0'
     minimalTlsVersion: '1.2'
