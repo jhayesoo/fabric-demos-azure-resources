@@ -1,7 +1,8 @@
 metadata description = 'Creates an Azure storage account.'
 param name string
-param location string = resourceGroup().location
+param location string
 param tags object = {}
+param keyVaultName string
 
 @allowed([
   'Cool'
@@ -11,7 +12,7 @@ param accessTier string = 'Hot'
 param allowBlobPublicAccess bool = true
 param allowCrossTenantReplication bool = true
 param allowSharedKeyAccess bool = true
-param containers array = []
+param containers array
 param defaultToOAuthAuthentication bool = false
 param deleteRetentionPolicy object = {}
 @allowed([ 'AzureDnsZone', 'Standard' ])
@@ -26,6 +27,10 @@ param networkAcls object = {
 @allowed([ 'Enabled', 'Disabled' ])
 param publicNetworkAccess string = 'Enabled'
 param sku object = { name: 'Standard_LRS' }
+
+resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+  name: keyVaultName
+}
 
 resource storage 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: name
@@ -51,14 +56,23 @@ resource storage 'Microsoft.Storage/storageAccounts@2022-05-01' = {
     properties: {
       deleteRetentionPolicy: deleteRetentionPolicy
     }
+
     resource container 'containers' = [for container in containers: {
       name: container.name
       properties: {
-        publicAccess: contains(container, 'publicAccess') ? container.publicAccess : 'None'
+        publicAccess: container.?publicAccess ?? 'None'
       }
     }]
   }
 }
 
+resource storageKeySecret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
+  name: 'storage-account-key'
+  parent: keyVault
+  properties: {
+    value: storage.listKeys().keys[0].value
+}
+}
+
 output name string = storage.name
-output primaryEndpoints object = storage.properties.primaryEndpoints
+output storageId  string = storage.id

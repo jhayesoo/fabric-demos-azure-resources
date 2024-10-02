@@ -2,33 +2,58 @@ metadata description = 'Creates an Azure SQL Server instance.'
 param name string
 param location string = resourceGroup().location
 param tags object = {}
-
-param appUser string = 'appUser'
-param databaseName string
-param keyVaultName string
-param sqlAdmin string = 'sqlAdmin'
-param connectionStringKey string = 'AZURE-SQL-CONNECTION-STRING'
-
+param principalId string
+param upn string
+param sqlAuthAdminLogin string
 @secure()
-param sqlAdminPassword string
-@secure()
-param appUserPassword string
+param sqlAuthAdminPassword string
 
 resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   name: name
   location: location
   tags: tags
+  identity: {
+    type: 'SystemAssigned'
+   }
   properties: {
     version: '12.0'
     minimalTlsVersion: '1.2'
+    administratorLogin: sqlAuthAdminLogin
+    administratorLoginPassword: sqlAuthAdminPassword
     publicNetworkAccess: 'Enabled'
-    administratorLogin: sqlAdmin
-    administratorLoginPassword: sqlAdminPassword
+       administrators: {
+       administratorType: 'ActiveDirectory'
+       principalType: 'User'
+       azureADOnlyAuthentication: false
+       login: upn
+       sid: principalId
+       tenantId: subscription().tenantId
+      }
   }
 
-  resource database 'databases' = {
-    name: databaseName
+
+  resource databaseWWI 'databases' = {
+    name: 'wide_world_importers'
     location: location
+    sku: {
+      name: 'GP_S_Gen5_4'
+      tier: 'GeneralPurpose'
+      }
+  }
+
+  resource databaseAW 'databases'= {
+    name: 'adventureworks'
+    location: location
+    tags: tags
+    sku: {
+      name: 'GP_S_Gen5_4'
+      tier: 'GeneralPurpose'
+      }
+    properties: {
+      autoPauseDelay: 60
+      minCapacity: json('0.5')
+      sampleName: 'AdventureWorksLT'
+      }
   }
 
   resource firewall 'firewallRules' = {
@@ -43,88 +68,5 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   }
 }
 
-resource sqlDeploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  name: '${name}-deployment-script'
-  location: location
-  kind: 'AzureCLI'
-  properties: {
-    azCliVersion: '2.37.0'
-    retentionInterval: 'PT1H' // Retain the script resource for 1 hour after it ends running
-    timeout: 'PT5M' // Five minutes
-    cleanupPreference: 'OnSuccess'
-    environmentVariables: [
-      {
-        name: 'APPUSERNAME'
-        value: appUser
-      }
-      {
-        name: 'APPUSERPASSWORD'
-        secureValue: appUserPassword
-      }
-      {
-        name: 'DBNAME'
-        value: databaseName
-      }
-      {
-        name: 'DBSERVER'
-        value: sqlServer.properties.fullyQualifiedDomainName
-      }
-      {
-        name: 'SQLCMDPASSWORD'
-        secureValue: sqlAdminPassword
-      }
-      {
-        name: 'SQLADMIN'
-        value: sqlAdmin
-      }
-    ]
-
-    scriptContent: '''
-wget https://github.com/microsoft/go-sqlcmd/releases/download/v0.8.1/sqlcmd-v0.8.1-linux-x64.tar.bz2
-tar x -f sqlcmd-v0.8.1-linux-x64.tar.bz2 -C .
-
-cat <<SCRIPT_END > ./initDb.sql
-drop user if exists ${APPUSERNAME}
-go
-create user ${APPUSERNAME} with password = '${APPUSERPASSWORD}'
-go
-alter role db_owner add member ${APPUSERNAME}
-go
-SCRIPT_END
-
-./sqlcmd -S ${DBSERVER} -d ${DBNAME} -U ${SQLADMIN} -i ./initDb.sql
-    '''
-  }
-}
-
-resource sqlAdminPasswordSecret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-  parent: keyVault
-  name: 'sqlAdminPassword'
-  properties: {
-    value: sqlAdminPassword
-  }
-}
-
-resource appUserPasswordSecret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-  parent: keyVault
-  name: 'appUserPassword'
-  properties: {
-    value: appUserPassword
-  }
-}
-
-resource sqlAzureConnectionStringSercret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-  parent: keyVault
-  name: connectionStringKey
-  properties: {
-    value: '${connectionString}; Password=${appUserPassword}'
-  }
-}
-
-resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
-  name: keyVaultName
-}
-
-var connectionString = 'Server=${sqlServer.properties.fullyQualifiedDomainName}; Database=${sqlServer::database.name}; User=${appUser}'
-output connectionStringKey string = connectionStringKey
-output databaseName string = sqlServer::database.name
+output databaseAWName string = sqlServer::databaseAW.name
+output databaseWWIName string = sqlServer::databaseWWI.name

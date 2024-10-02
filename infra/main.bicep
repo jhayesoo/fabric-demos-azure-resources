@@ -18,28 +18,37 @@ param location string
 // "resourceGroupName": {
 //      "value": "myGroupName"
 // }
-param resourceGroupName string = ''
+param resourceGroupName string
 
+param resourcePrefix string
+param resourceSuffix string
+
+param principalId string = ''
+
+param upn string = ''
+
+@description('Create a login name for SQL authentication')
+param sqlAuthAdminLogin string
+
+@description('Create a password for SQL authentication')
+@secure()
+param sqlAuthAdminPassword string
 var abbrs = loadJsonContent('./abbreviations.json')
 
 // tags that should be applied to all resources.
 var tags = {
   // Tag all resources with the environment name.
   'azd-env-name': environmentName
-}
+  }
 
-// Generate a unique token to be used in naming resources.
-// Remove linter suppression after using.
-#disable-next-line no-unused-vars
-var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
+var wwiBacpacUri = 'https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bacpac'
 
-// Name of the service defined in azure.yaml
-// A tag named azd-service-name with this value should be applied to the service host resource, such as:
-//   Microsoft.Web/sites for appservice, function
-// Example usage:
-//   tags: union(tags, { 'azd-service-name': apiServiceName })
-#disable-next-line no-unused-vars
-var apiServiceName = 'python-api'
+var vprefix = toLower('${resourcePrefix}')
+var vsuffix = toLower('${resourceSuffix}')
+
+var keyVaultName = '${vprefix}-${abbrs.keyVaultVaults}${vsuffix}'
+var storageAccountName = '${replace(vprefix,'-','0')}0${abbrs.storageStorageAccounts}0${replace(vsuffix,'-','0')}'
+var sqlServerName = '${vprefix}-${abbrs.sqlServers}${vsuffix}'
 
 // Organize resources in a resource group
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
@@ -47,6 +56,72 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
   tags: tags
 }
+
+// Deploy Key Vault
+module keyvault './core//security/keyvault.bicep' = {
+  name: 'keyvault'
+  scope: rg
+  params: {
+    location: location
+    name: keyVaultName
+    tags: tags
+    principalId: principalId
+   }
+ }
+
+ module sqlAuthAdminPasswordSecret './core/security/keyvault-secret.bicep' = {
+  name: 'sqlAuthAdminPasswordSecret'
+  scope: rg
+  params: {
+    keyVaultName: keyVaultName
+    name: 'sql-admin-password'
+    secretValue: sqlAuthAdminPassword
+  }
+  dependsOn: [
+    keyvault
+  ]
+}
+module storageAccount './core/storage/storage-account.bicep' = {
+  name: 'storageAccount'
+  scope: rg
+  params: {
+    name: storageAccountName
+    location: location
+    keyVaultName: keyVaultName
+    containers:[
+      { 
+        name:'bacpacs'
+      }
+      {
+      name: 'scenario1-validatecsv'
+      }
+    ]
+    tags: tags
+  }
+  dependsOn: [
+    keyvault
+]
+}
+
+module sqlServer './core/database/sqlserver/sqlserver.bicep' = {
+  name: 'sqlServer'
+  scope: rg
+  params: {
+    name: sqlServerName
+    location: location
+    tags: tags
+    principalId: principalId
+    upn: upn
+    sqlAuthAdminLogin: sqlAuthAdminLogin
+    sqlAuthAdminPassword: sqlAuthAdminPassword
+  }
+  dependsOn: [
+    storageAccount
+    //storageUploadFile
+    keyvault
+  ]
+}
+
 
 // Add resources to be provisioned below.
 // A full example that leverages azd bicep modules can be seen in the todo-python-mongo template:
@@ -64,3 +139,13 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 // To see these outputs, run `azd env get-values`,  or `azd env get-values --output json` for json output.
 output AZURE_LOCATION string = location
 output AZURE_TENANT_ID string = tenant().tenantId
+output AZURE_UPN string = upn
+output AZURE_PRINCIPAL_ID string = principalId
+output AZURE_RESOURCE_GROUP_NAME string = rg.name
+output AZURE_KEYVAULT_NAME string = keyVaultName
+output AZURE_STORAGE_ACCOUNT_NAME string = storageAccountName
+output AZURE_SQL_SERVER_NAME string = sqlServerName
+output AZURE_SQL_SERVER_ADMIN_LOGIN string = sqlAuthAdminLogin
+
+
+
