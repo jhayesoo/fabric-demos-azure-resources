@@ -1,50 +1,4 @@
-# AI-in-a-Box Accelerator Name
-
-<!-- <div style="display: flex;">
-  <div style="width: 70%;">
-    This solution is part of the the AI-in-a-Box framework developed by the team of Microsoft Customer Engineers and Architects to accelerate the deployment of AI and ML solutions. Our goal is to simplify the adoption of AI technologies by providing ready-to-use accelerators that ensure quality, efficiency, and rapid deployment.
-  </div>
-  <div style="width: 30%;">
-    <img src="./media/ai-in-a-box.png" alt="AI-in-a-box Project Logo: Description" style="width: 10%">
-  </div>
-</div> -->
-**This part of the template is the base README for your AI in a Box solution, including user story, deployment, customizations, etc. Fill in the appropriate info for each subheading. For an example, see the [README-example](README-example.md) in this template. Don't forget to delete this paragraph :)**
-|||
-|:---| ---:|
-|This solution is part of the the AI-in-a-Box framework developed by the team of Microsoft Customer Engineers and Architects to accelerate the deployment of AI and ML solutions. Our goal is to simplify the adoption of AI technologies by providing ready-to-use accelerators that ensure quality, efficiency, and rapid deployment.| <img src="./media/ai-in-a-box.png" alt="AI-in-a-box Logo: Description" style="width: 70%"> |
-
-## User Story
-
-This is the WHY
-
-Insert a image here that tells an interesting story about the solution being delivered
-
-Describe how this solution can help a user's organization, including  examples on how this solution could help specific industries
-
-Describe what makes this solution and other reasons why someone would want to deploy this. Here's some ideas that you may wish to consider:
-
-- **Speed and Efficiency**: How does this solution accelerate the deployment of AI/ML solutions?
-- **Cost-Effectiveness**: In what ways does it help save on development costs?
-- **Quality and Reliability**: What measures are in place to ensure the high quality and reliability of your solution?
-- **Competitive Edge**: How does it give users a competitive advantage in their domain?
-
-## What's in the Box
-
-This is WHAT they get when they deploy the solution
-
-Describe any helpful technical benefits of this solution (for example, deploys key vault for storing keys securely, UAMI for easy and secure integration)
-
-Describe what Azure Resources are deployed
-
-Include Architecture Diagrams including inputs and outputs
-
-Provide links to any associated blogs about this solution (any FTA blogs you wrote that provide more details)
-
-## Thinking Outside of the Box
-
-This is a WHY and a WHAT
-
-Describe ways users can customize and enahance the solution for use inside their organization
+# Resources for Fabric Demos
 
 ## Deploy the Solution
 
@@ -86,5 +40,3 @@ If applicable, offer thanks to individuals, organizations, or projects that help
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
 
 ---
-
-This project is part of the AI-in-a-Box series, aimed at providing the technical community with tools and accelerators to implement AI/ML solutions efficiently and effectively.
